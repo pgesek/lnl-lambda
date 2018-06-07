@@ -4,6 +4,7 @@ const { Client } = require('pg');
 
 const conn = process.env.CONNECTION_STRING;
 
+
 module.exports.handler = (event, context, callback) => {
   console.log("Initiating client");
 
@@ -14,7 +15,13 @@ module.exports.handler = (event, context, callback) => {
     if (err) {
       callback(err);
     } else {
-      let response = JSON.stringify(res.rows);
+      let data = JSON.stringify(res.rows);
+
+      let response = {
+        statusCode: 200,
+        body: data
+      };
+
       callback(null, response);
     }
 
