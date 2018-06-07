@@ -4,7 +4,7 @@
   "description": "Lambda demo for SolDevelo L&L",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"No tests exists, sorry\" && exit 1",
+    "test": "echo \"No tests exist, sorry\" && exit 1",
     "deploy": " — zip-file fileb: //Lambda-Deployment.zip",
     "predeploy": "zip -r Lambda-Deployment.zip * -x *.zip *.log"
   },
