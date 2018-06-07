@@ -13,4 +13,4 @@ npm predeploy
 Upload the zip to the Lambda function.
 
 Database connection url (including username & password) needs to be set as
-the `DB_URL` environment variable.
+the `CONNECTION_STRING` environment variable.

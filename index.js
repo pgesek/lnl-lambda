@@ -2,7 +2,7 @@
 
 const { Client } = require('pg');
 
-const conn = process.env.DB_URL;
+const conn = process.env.CONNECTION_STRING;
 
 module.exports.handler = (event, context, callback) => {
   console.log("Initiating client");
