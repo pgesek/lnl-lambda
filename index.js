@@ -6,7 +6,11 @@ const conn = process.env.CONNECTION_STRING;
 
 
 module.exports.handler = (event, context, callback) => {
-  console.log("Initiating client");
+  console.log("Processing request");
+
+  if (event.headers) {
+    console.log(event.headers);
+  }
 
   const client = new Client(conn);
   client.connect();
