@@ -3,17 +3,23 @@
 const { Client } = require('pg');
 
 const conn = process.env.CONNECTION_STRING;
-
+let client = undefined;
 
 module.exports.handler = (event, context, callback) => {
+  context.callbackWaitsForEmptyEventLoop = false;
+
   console.log("Processing request");
+
+  if (!client) {
+    console.log("Initiating db connection");
+
+    client = new Client(conn);
+    client.connect();
+  }
 
   if (event.headers) {
     console.log(event.headers);
   }
-
-  const client = new Client(conn);
-  client.connect();
 
   client.query('SELECT name FROM person', (err, res) => {
     if (err) {
@@ -28,8 +34,6 @@ module.exports.handler = (event, context, callback) => {
 
       callback(null, response);
     }
-
-    client.end();
   });
 
 };
