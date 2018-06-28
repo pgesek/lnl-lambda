@@ -7,7 +7,7 @@ To build run:
 
 ```bash
 npm install
-npm predeploy
+npm run-script predeploy
 ```
 
 Upload the zip to the Lambda function.

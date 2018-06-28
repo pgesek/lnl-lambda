@@ -1,0 +1,14 @@
+version: 0.2
+
+phases:
+
+  pre_build:
+    commands:
+      - npm install
+  build:
+    commands:
+      - npm run-script predeploy
+artifacts:
+  files:
+    - Lambda-Deploymet.zip
+  discard-paths: yes
